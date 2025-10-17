@@ -1,7 +1,9 @@
 # build output
 dist/
+
 # generated types
 .astro/
+_astro/
 
 # dependencies
 node_modules/
@@ -22,3 +24,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# ZCLI Builds
+app/tmp

@@ -1,14 +1,32 @@
 {
-  "name": "",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^5.14.3"
-  }
+	"name": "tycoud_astro-zendesk",
+	"type": "module",
+	"version": "1.0.0",
+	"author": {
+		"name": "Tyler Coudriet",
+		"email": "contact@tycoud.dev",
+		"url": "https://tycoud.dev"
+	},
+	"scripts": {
+		"dev": "astro dev",
+		"dev:auto": "bun scripts/dev.ts",
+		"build": "astro build",
+		"build:auto": "bun scripts/build.ts",
+		"preview": "astro preview",
+		"astro": "astro",
+		"lint": "eslint src/",
+		"lint:fix": "eslint src/ --fix"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.14",
+		"astro": "^5.14.5",
+		"tailwindcss": "^4.1.14"
+	},
+	"devDependencies": {
+		"@antfu/eslint-config": "^5.4.1",
+		"@types/bun": "^1.3.0",
+		"eslint": "^9.37.0",
+		"eslint-plugin-astro": "^1.3.1",
+		"eslint-plugin-format": "^1.0.2"
+	}
 }

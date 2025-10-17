@@ -1,43 +1,35 @@
-# Astro Starter Kit: Minimal
+# Astro App Template
 
-```sh
-bun create astro@latest -- --template minimal
-```
+A minimal template repo for creating ZCLI Apps in Zendesk using Astro. Astro lets you bring your own front-end framework or no framework at all.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+There are custom dev and build scripts in the `scripts` folder that you can use but they may need adjusted for your specific app/environment.
+You can run them with `bun dev:auto` and `bun build:auto`
 
-## 🚀 Project Structure
+## Development Workflow
 
-Inside of your Astro project, you'll see the following folders and files:
+The Dev workflow leverages Astro's Dev mode.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+1. Run `bun dev` or your runtime equivalent to start the dev server
+2. By default Astro runs on `http://localhost:4321/`
+3. Update the `app/manifest.json` file with your dev server URL
+   - You will need to update file paths for all of your app locations
+   - For example `/assets/index.html` will be replaced with `http://localhost:4321/index.html`
+4. Run `zcli apps:server` to start the zcli server
+5. Do your development stuff
+6. When you are completed, change your URLs in `app/manifest.json` back to file paths
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Deploying to Production
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+To make sure your bundled assets will be loaded properly in production, you will need to provide Astro with your installation ID
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Use `zcli login -i` to authenticate with your desired Zendesk instance
+2. Run `zcli apps:create` to deploy your app to Zendesk.
+3. You should receive an `app_id` in the terminal from ZCLI.
+   - It can also be found in the file at `app/zcli.apps.config.json`
+4. Update the `astro.config.mjs` file to use your installation ID
+   - You will want to update the `assetsPrefix` value from `/0/assets/`
+   - If your ID is `112233` for example, you will change it to `/112233/assets`
+5. Make sure your `app/manifest.json` is updated and not using localhost.
+6. Rebuild your app with `bun run build` or your runtime equivalent
+7. Run `zcli apps:update` to update your deployed app.
+8. In the future you can skip steps 1-4 as long as you are deploying to the same instance.

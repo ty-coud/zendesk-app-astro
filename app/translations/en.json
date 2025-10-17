@@ -1,0 +1,8 @@
+{
+	"app": {
+		"name": "Astro App Template",
+		"short_description": "A minimal template repo for creating ZCLI Apps in Zendesk using Astro.",
+		"long_description": "A minimal template repo for creating ZCLI Apps in Zendesk using Astro. Astro lets you bring your own front-end framework or no framework at all.",
+		"installation_instructions": "Simply click install."
+	}
+}
