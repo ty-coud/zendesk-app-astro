@@ -1,23 +1,21 @@
-import tailwindcss from '@tailwindcss/vite';
-
+import react from '@astrojs/react';
+import tailwind from '@astrojs/tailwind';
 // @ts-check
 import { defineConfig } from 'astro/config';
-
-const APP_ID = 0;
 
 // https://astro.build/config
 export default defineConfig({
 	outDir: './app/assets',
 	build: {
-		assetsPrefix: `/${APP_ID}/assets/`
+		assetsPrefix: `./`
 	},
 	vite: {
 		build: {
 			emptyOutDir: false
-		},
-		plugins: [tailwindcss()]
+		}
 	},
 	devToolbar: {
 		enabled: false
-	}
+	},
+	integrations: [tailwind(), react()]
 });

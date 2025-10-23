@@ -5,6 +5,16 @@ A minimal template repo for creating ZCLI Apps in Zendesk using Astro. Astro let
 There are custom dev and build scripts in the `scripts` folder that you can use but they may need adjusted for your specific app/environment.
 You can run them with `bun dev:auto` and `bun build:auto`
 
+### The following are included:
+
+- Astro with TailwindCSS v3 and React v18 plugins
+- Zendesk Garden Support OOTB
+    - Refer to the various repos for Zendesk Garden stuff:
+    - https://github.com/zendeskgarden/react-components
+    - https://github.com/zendeskgarden/react-containers
+    - https://github.com/zendeskgarden/tailwindcss
+- ESLint powered by Antfu Eslint config
+
 ## Development Workflow
 
 The Dev workflow leverages Astro's Dev mode.

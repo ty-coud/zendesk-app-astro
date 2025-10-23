@@ -1,9 +1,13 @@
 ---
+import MintyButton from '~/components/minty-button';
+
 import Layout from '~/layout.astro';
 ---
 
 <Layout>
     <h1>Hi <span id="name"></span>, Welcome to Astro in Zendesk!</h1>
+    <!-- Make sure to use an appopriate client:* directive with React components to load JS -->
+    <MintyButton client:load />
 </Layout>
 
 <script lang="ts">
