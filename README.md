@@ -5,6 +5,10 @@ A minimal template repo for creating ZCLI Apps in Zendesk using Astro. Astro let
 There are custom dev and build scripts in the `scripts` folder that you can use but they may need adjusted for your specific app/environment.
 You can run them with `bun dev:auto` and `bun build:auto`
 
+## Using Zendesk Garden
+
+There is a branch called `garden` that has React and Zendesk Garden set up if you'd like to use those. This main branch is kept minimal and framework agnostic.
+
 ## Development Workflow
 
 The Dev workflow leverages Astro's Dev mode.
