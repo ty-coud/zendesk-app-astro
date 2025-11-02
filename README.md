@@ -28,12 +28,7 @@ To make sure your bundled assets will be loaded properly in production, you will
 
 1. Use `zcli login -i` to authenticate with your desired Zendesk instance
 2. Run `zcli apps:create` to deploy your app to Zendesk.
-3. You should receive an `app_id` in the terminal from ZCLI.
-   - It can also be found in the file at `app/zcli.apps.config.json`
-4. Update the `astro.config.mjs` file to use your installation ID
-   - You will want to update the `assetsPrefix` value from `/0/assets/`
-   - If your ID is `112233` for example, you will change it to `/112233/assets`
-5. Make sure your `app/manifest.json` is updated and not using localhost.
-6. Rebuild your app with `bun run build` or your runtime equivalent
-7. Run `zcli apps:update` to update your deployed app.
-8. In the future you can skip steps 1-4 as long as you are deploying to the same instance.
+3. Make sure your `app/manifest.json` is updated and not using localhost.
+4. Rebuild your app with `bun run build` or your runtime equivalent
+5. Run `zcli apps:update` to update your deployed app.
+6. In the future you can skip steps 1-2 as long as you are deploying to the same instance.

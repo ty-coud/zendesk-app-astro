@@ -1,1 +1,20 @@
-{"name":"Astro App Template","author":{"name":"Tyler Coudriet","email":"contact@tycoud.dev","url":"https://tycoud.dev"},"defaultLocale":"en","private":true,"location":{"support":{"ticket_sidebar":{"url":"assets/index.html","flexible":true}}},"version":"1.0.0","frameworkVersion":"2.0"}
+{
+	"name": "Astro App Template",
+	"author": {
+		"name": "Tyler Coudriet",
+		"email": "contact@tycoud.dev",
+		"url": "https://tycoud.dev"
+	},
+	"defaultLocale": "en",
+	"private": true,
+	"location": {
+		"support": {
+			"ticket_sidebar": {
+				"url": "http://localhost:4321/index.html",
+				"flexible": true
+			}
+		}
+	},
+	"version": "1.0.0",
+	"frameworkVersion": "2.0"
+}

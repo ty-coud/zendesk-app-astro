@@ -5,7 +5,8 @@
 		"ignoreDeprecations": "6.0",
 		"paths": {
 			"~/*": ["src/*"]
-		}
+		},
+        "typeRoots": ["./src/types"]
 	},
 	"include": [".astro/types.d.ts", "**/*"],
 	"exclude": ["app/assets"]
