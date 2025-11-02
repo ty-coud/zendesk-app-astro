@@ -1,0 +1,66 @@
+---
+// Props can be passed to the components
+const { classes = [] }: { classes?: string[] } = Astro.props;
+---
+
+<zd-username class:list={classes}>
+	<span id="zd-username-content"></span>
+</zd-username>
+
+<script>
+	import { getClient } from '~/zaf';
+
+	class ZendeskUsername extends HTMLElement {
+		client: any | null;
+
+		contentSpan: HTMLSpanElement | null;
+		contentText: string | null;
+
+		// Initialize default values of class properties
+		constructor() {
+			super();
+
+			this.client = null;
+			this.contentSpan = null;
+			this.contentText = '';
+		}
+
+		// Runs when the component is added to the DOM
+		// Actual setup should all happen here
+		async connectedCallback() {
+			this.client = getClient();
+			this.contentSpan = this.querySelector('span#zd-username-content');
+			this.contentText = await this.getCurrentUser();
+
+			if (this.contentSpan != null) {
+				this.contentSpan.textContent = this.contentText;
+			}
+		}
+
+		// Runs when the component is removed from the DOM (no use case examples yet)
+		async disconnectedCallback() {}
+
+		// This is called when the element is moved in the DOM (no use case examples yet)
+		async connectedMoveCallback() {}
+
+		// Called each time the element is moved to a new document (no use case examples yet)
+		async adoptedCallback() {}
+
+		// Called when attributes are changed, added, removed, or replaced (no use case examples yet)
+		async attributeChangedCallback() {}
+
+		// Place custom functions below to implement functionality
+		async getCurrentUser(): Promise<string | null> {
+			try {
+				const { currentUser }: { currentUser: ZendeskUser } = await this.client.get('currentUser');
+
+				return currentUser.name;
+			} catch (e) {
+				console.error(e);
+				return null;
+			}
+		}
+	}
+
+	customElements.define('zd-username', ZendeskUsername);
+</script>
